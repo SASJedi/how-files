@@ -22,6 +22,7 @@
    %put &MsgType- ;
    %return;
 %end; 
+
 %if %SUPERQ(topPath)= %then %do;
    %put &MsgType- ;
    %put &MsgType: Using ~/SESUG2024 as top-level directory;
@@ -83,5 +84,5 @@ filename zipfile "&path/DataDiagnosticsWithBaseSAS.zip";
 %include "&path/data/setup.sas";
 %mend;
 
+%setUpDataDiagnosics(?)
 
-%setUpDataDiagnosics()
