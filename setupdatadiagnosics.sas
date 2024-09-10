@@ -1,5 +1,6 @@
 %macro setUpDataDiagnosics(topPath);
 %local MSGTYPE;
+%global path;
 %let MsgType=NOTE;
 %if %SUPERQ(topPath)= ? %then %do;
 %Syntax:
@@ -60,13 +61,11 @@ options nodlcreatedir;
 	%deletetree(%superq(topPath)/data_diagnostics)
 %end;
 
-/* Create folder tree */
+/* Create root of folder tree */
 options dlcreatedir;
+%let path=&topPath/data_diagnostics;
 libname path "&topPath/data_diagnostics";
 libname path clear;
-
-%let path=&topPath/data_diagnostics;
-
 options nodlcreatedir;
 
 filename zipfile "&path/DataDiagnosticsWithBaseSAS.zip";
