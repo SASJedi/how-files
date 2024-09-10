@@ -28,7 +28,7 @@
    %put &MsgType: Using ~/SESUG2024 as top-level directory;
    %put &MsgType- ;
    %put &MsgType- ;
-	%let topPath=~/SESUG2024;
+   %let topPath=~/SESUG2024;
 %end;
 
 filename macro url "https://raw.githubusercontent.com/SASJedi/sas-macros/master/deletetree.sas";
@@ -77,9 +77,9 @@ run;
 
 filename zipfile clear;
 
-%mp_unzip(ziploc="&path/DataDiagnosticsWithBaseSAS.zip",outdir=~/SESUG2024);
-filename zipfile "&path/DataDiagnosticsWithBaseSAS.zip";
-%let rc=%qsysfunc(fdelete(zipfile));
+%mp_unzip(ziploc="&path/DataDiagnosticsWithBaseSAS.zip",outdir=&path);
+/*filename zipfile "&path/DataDiagnosticsWithBaseSAS.zip";
+%let rc=%qsysfunc(fdelete(zipfile)); */
 
 %include "&path/data/setup.sas";
 %mend;
