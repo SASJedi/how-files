@@ -77,7 +77,7 @@ run;
 
 filename zipfile clear;
 
-%mp_unzip(ziploc="&path/DataDiagnosticsWithBaseSAS.zip",outdir=&path);
+%mp_unzip(ziploc="&path/DataDiagnosticsWithBaseSAS.zip",outdir=&topPath);
 /*filename zipfile "&path/DataDiagnosticsWithBaseSAS.zip";
 %let rc=%qsysfunc(fdelete(zipfile)); */
 
