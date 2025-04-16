@@ -18,15 +18,17 @@
    %put &MsgType- ;
    %put &MsgType- Examples: ;
    %put &MsgType- %nrstr(%%)&SYSMACRONAME(c:/workshop);
-   %put &MsgType- %nrstr(%%)&SYSMACRONAME(~/workshops);
+   %put &MsgType- %nrstr(%%)&SYSMACRONAME(~/workshop);
    %put &MsgType- ;
    %put &MsgType- ;
    %return;
 %end; 
 
 %if %SUPERQ(topPath)= %then %do;
-   %put &MsgType- ;
-   %put &MsgType: Using ~/workshops as top-level directory;
+   %if &sysscp=WIN %then %let topPath=c:/workshops;
+      %else %let topPath=~/workshops;
+%put &MsgType- ;
+   %put &MsgType: Using %superq(topPath) as top-level directory;
    %put &MsgType- ;
    %put &MsgType- ;
    %let topPath=~/workshops;
@@ -56,15 +58,15 @@ libname path "&topPath";
 libname path clear;
 options nodlcreatedir;
 
-%if %fileexist(%superq(topPath)/data_diagnostics) %then %do;
-	%PUT NOTE: Directory %superq(topPath)/data_diagnostics exists. Deleting all content.;
-	%deletetree(%superq(topPath)/data_diagnostics)
+%if %fileexist(%superq(topPath)/Data Diagnostics with Base SAS) %then %do;
+	%PUT NOTE: Directory %superq(topPath)/Data Diagnostics with Base SAS exists. Deleting all content.;
+	%deletetree(%superq(topPath)/Data Diagnostics with Base SAS)
 %end;
 
 /* Create root of folder tree */
 options dlcreatedir;
-%let path=&topPath/data_diagnostics;
-libname path "&topPath/data_diagnostics";
+%let path=&topPath/Data Diagnostics with Base SAS;
+libname path "&topPath/Data Diagnostics with Base SAS";
 libname path clear;
 options nodlcreatedir;
 
