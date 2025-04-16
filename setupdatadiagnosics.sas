@@ -14,11 +14,11 @@
    %put &MsgType- ;
    %put &MsgType- topPath: fully-qualified path to the folder where the workshop;
    %put &MsgType- top-level data-diagnositcs folder will be created. Workshop files;
-   %put &MsgType- will be downloaded and unzipped there. Default is ~/SESUG2024;
+   %put &MsgType- will be downloaded and unzipped there. Default is ~/workshops;
    %put &MsgType- ;
    %put &MsgType- Examples: ;
    %put &MsgType- %nrstr(%%)&SYSMACRONAME(c:/workshop);
-   %put &MsgType- %nrstr(%%)&SYSMACRONAME(~/SESUG2024);
+   %put &MsgType- %nrstr(%%)&SYSMACRONAME(~/workshops);
    %put &MsgType- ;
    %put &MsgType- ;
    %return;
@@ -26,10 +26,10 @@
 
 %if %SUPERQ(topPath)= %then %do;
    %put &MsgType- ;
-   %put &MsgType: Using ~/SESUG2024 as top-level directory;
+   %put &MsgType: Using ~/workshops as top-level directory;
    %put &MsgType- ;
    %put &MsgType- ;
-   %let topPath=~/SESUG2024;
+   %let topPath=~/workshops;
 %end;
 
 filename macro url "https://raw.githubusercontent.com/SASJedi/sas-macros/master/deletetree.sas";
