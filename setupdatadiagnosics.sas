@@ -12,9 +12,10 @@
    %put &MsgType- ;
    %put &MsgType- Syntax: %nrstr(%%)&SYSMACRONAME(topPath);
    %put &MsgType- ;
-   %put &MsgType- topPath: fully-qualified path to the folder where the workshop;
-   %put &MsgType- top-level data-diagnositcs folder will be created. Workshop files;
-   %put &MsgType- will be downloaded and unzipped there. Default is ~/workshops;
+   %put &MsgType- topPath: (Optional) Fully-qualified path to the top-level folder under which;
+   %put &MsgType-          the "Data Diagnostics with Base SAS" folder is to be created.;
+   %put &MsgType-          All workshop files will be downloaded and unzipped there.;
+   %put &MsgType-          Default is c:/workshop for SAS on Windows, and ~/workshop on Linux;
    %put &MsgType- ;
    %put &MsgType- Examples: ;
    %put &MsgType- %nrstr(%%)&SYSMACRONAME(c:/workshop);
